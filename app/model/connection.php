@@ -76,12 +76,15 @@
 		}
 	}
 	/*
-	$gbd = new Conexion();
-	$consulta = 'SELECT * FROM users;';
-	$parameter = array();
-	$operation = $gbd->select( $consulta, $parameter );
-	var_dump($operation);
+		$gbd = new Conexion();
+		$consulta = 'SELECT * FROM users;';
+		$parameter = array();
+		$operation = $gbd->select( $consulta, $parameter );
+		var_dump( $operation );
 	*/
+
+		// var_dump(base64_decode($operation['result'][0]['password']));
+	
 	/*
 		$gbd = new Conexion();
 		$consulta = 'INSERT INTO usuario (usr_nombre, usr_password, usr_rolusrid, usr_estado) VALUES (?, ?, ?, ?) RETURNING usr_id;';

@@ -33,6 +33,28 @@ class User {
 		return $this->phone;
 	}
 
+	public static function listar( $conexion ) {
+		$consulta='SELECT * FROM users;';	
+		$parameter = array();
+		$operation = $conexion->select($consulta, $parameter);
+		if( $operation['ejecution'] ) {
+			if( $operation['result'] ) {
+				$i = 0;
+				foreach( $operation['result'] as $fila ) {
+					$resultado[$i]['id'] = $fila['idusers'];
+					$resultado[$i]['name'] = $fila['name'];
+					$resultado[$i]['user'] = $fila['user'];
+					$resultado[$i]['password'] = $fila['password'];
+					$resultado[$i]['city'] = $fila['city'];
+					$resultado[$i]['phone'] = $fila['phone'];
+					$i++;
+				}
+				$operation['result'] = $resultado;
+			}
+		}
+		return $operation;
+	}
+
 	public static function registrar( $name, $user, $password, $city, $phone, $conexion ) {
 		$consulta='INSERT INTO users ( name, user, password, city, phone ) values ( ?,?,?,?,? )';
 		$parameter[] = array(
@@ -72,6 +94,19 @@ class User {
 		return $operation;
 	}
 }
+	/*
+		$user = new User();
+		$conexion = new Conexion();
+		$data = $user->eliminar( $conexion );
+		var_dump( $data );
+	*/
+	/*
+		$user = new User();
+		$conexion = new Conexion();
+		$data = $user::listar( $conexion );
+		$dataJson = json_encode( $data );
+		var_dump( $dataJson );
+	*/
 	/*
 		$conexion = new Conexion();
 		$operation = User::registrar( 'Steven','Sweet','123123123','Bogota','123123123', $conexion );

@@ -13,13 +13,17 @@ $phone = (isset($_REQUEST['phone'])) ? filter_var($_REQUEST['phone'], FILTER_SAN
 if ( $name != null and $user != null and $password != null and $city != null and $phone != null ) {
 	try {
 		$conexion = new Conexion();
-		$operation = User::registrar( $name, $user, $password, $city, $phone, $conexion );
+
+		$password_cript = base64_encode($password);
+		$operation = User::registrar( $name, $user, $password_cript, $city, $phone, $conexion );
 
 		if( ( $operation['ejecution'] ) && ( $operation['result']) ) {
 			$response['message'] = "Se registro correctamente la información.";
 			$response['success'] = true;
 
-			header('Location: http://localhost/crud_api/app/view/html/register/register.html');
+			header('Location: http://localhost/crud_api/index.php?success=Te has registrado satisfactoriamente');
+		} else {
+			header('Location: http://localhost/crud_api/index.php?error=Error al registrar');
 		}
 	} catch ( Exception $e  ) {
 		$response['message'] = "Error register";

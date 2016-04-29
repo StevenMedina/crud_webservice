@@ -13,19 +13,14 @@ $( document ).ready(function() {
 			}
 		}).done(function( msg ) {
 			if( msg.success ) {
-				swal(
-				  'Excelente, te has registrado satisfactoriamente',
-				  'Presiona el boton para salir...',
-				  'success'
-				);
+				swal( 'Excelente, te has registrado satisfactoriamente', 'Presiona el boton para salir...', 'success' );
 				$('#name').val('');
 				$('#user').val('');
-				$('#email').val('');
 				$('#password').val('');
 				$('#city').val('');
 				$('#phone').val('');
 			} else {
-				$("#contactForm > span").html("Error!");
+				$("#registerUser > span").html("Error!");
 			}
 		});
 		return false;
