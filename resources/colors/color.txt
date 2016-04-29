@@ -1,0 +1,6 @@
+colors
+
+#76508E - morado claro
+#482D57 - morado oscuro
+#03C1EB - azul
+#86F3B8 - verde
