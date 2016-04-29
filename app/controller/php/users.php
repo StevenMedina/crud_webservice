@@ -18,6 +18,8 @@ if ( $name != null and $user != null and $password != null and $city != null and
 		if( ( $operation['ejecution'] ) && ( $operation['result']) ) {
 			$response['message'] = "Se registro correctamente la información.";
 			$response['success'] = true;
+
+			header('Location: http://localhost/crud_api/app/view/html/register/register.html');
 		}
 	} catch ( Exception $e  ) {
 		$response['message'] = "Error register";

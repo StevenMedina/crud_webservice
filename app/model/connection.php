@@ -76,11 +76,11 @@
 		}
 	}
 	/*
-		$gbd = new Conexion();
-		$consulta = 'SELECT * FROM users;';
-		$parameter = array();
-		$operation = $gbd->select( $consulta, $parameter );
-		var_dump($operation);
+	$gbd = new Conexion();
+	$consulta = 'SELECT * FROM users;';
+	$parameter = array();
+	$operation = $gbd->select( $consulta, $parameter );
+	var_dump($operation);
 	*/
 	/*
 		$gbd = new Conexion();
