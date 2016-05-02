@@ -11,4 +11,9 @@ div #jumbotronRegister {
 div #jumbotronAbout {
 	background-color: #76508E;
 	color: #ffffff;
-} 
+}
+
+div #jumbotronCrud {
+	background-color: #03C1EB;
+	color: #000000;
+}
