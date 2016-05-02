@@ -35,12 +35,12 @@
 				<div class="collapse navbar-collapse" id="navbar1">
 					<ul class="nav navbar-nav">
 						<!--<li class="active"><a href="#">Link<span class="sr-only">(current)</span></a></li>-->
-						<li><a href="#">WEBSERVICES</a></li>
+						<li><a href="/crud_api/app/view/html/webservices/webservice.php">WEBSERVICES</a></li>
 						<li class="active"><a href="#">CRUD<span class="sr-only">(current)</span></a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Registro</a></li>
-						<li><a href="#">Ingreso</a></li>
+						<li><a href="/crud_api/app/view/html/register/register.html">Registro</a></li>
+						<li><a href="/crud_api/app/view/html/login/login.html">Ingreso</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
@@ -50,7 +50,7 @@
 	<section>
 		<!-- Jumbotron -->
 		<div class="container-fluid">
-			<div class="jumbotron" id="jumbotronCrud">
+			<div class="jumbotron bg-trasparent-black">
 				<h2>Crud</h2>
 				<p>En computación CRUD es el acrónimo de Crear, Leer, Actualizar y Borrar (del original en inglés: Create, Read, Update and Delete). Se usa para referirse a las funciones básicas en bases de datos o la capa de persistencia en un software.</p>
 				<a href="/crud_api/app/view/html/about.html" class="btn btn-warning"><span>Conocer mas...</span></a>
@@ -71,83 +71,89 @@
 
 	<section>
 		<div class="container">
-			<h2>Usuarios</h2>
-
-			<table class="table">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Nombre</th>
-						<th>Usuario</th>
-						<th>Contraseña</th>
-						<th>Ciudad</th>
-						<th>Telefono</th>
-				    </tr>
-				</thead>
-				<tbody>
-					<?php $cantidadUser = count( $dataUser['result'] ); ?>
-					<?php if ( $cantidadUser == 1 ) : ?>
-						<?php for ( $i = 0; $i < $cantidadUser; $i++ ) : ?> 
+			<div class="col-md-12 border-color-gray border-radius-min bg-color-white">
+				<div class="table-responsive">
+					<h2>Usuarios</h2>
+					<table class="table table-striped table-resposive table-inverse">
+						<thead>
 							<tr>
-								<td><?php echo( $dataUser['result'][$i]['id'] ); ?></td>
-								<td><?php echo( $dataUser['result'][$i]['name'] ); ?></td>
-								<td><?php echo( $dataUser['result'][$i]['user'] ); ?></td>
-								<td><?php echo( $dataUser['result'][$i]['password'] ); ?></td>
-								<td><?php echo( $dataUser['result'][$i]['city'] ); ?></td>
-								<td><?php echo( $dataUser['result'][$i]['phone'] ); ?></td>
-							</tr>
-						<?php endfor; ?>
-					<?php else : ?>
-						<?php for ( $i = 0; $i < $cantidadUser ; $i++ ) : ?> 
-							<tr>
-								<td><?php echo( $dataUser['result'][$i]['id'] ); ?></td>
-								<td><?php echo( $dataUser['result'][$i]['name'] ); ?></td>
-								<td><?php echo( $dataUser['result'][$i]['user'] ); ?></td>
-								<td><?php echo( $dataUser['result'][$i]['password'] ); ?></td>
-								<td><?php echo( $dataUser['result'][$i]['city'] ); ?></td>
-								<td><?php echo( $dataUser['result'][$i]['phone'] ); ?></td>
-							</tr>
-						<?php endfor; ?>
-					<?php endif; ?>
-					
-				</tbody>
-			</table>
+								<th>ID</th>
+								<th>Nombre</th>
+								<th>Usuario</th>
+								<th>Contraseña</th>
+								<th>Ciudad</th>
+								<th>Telefono</th>
+						    </tr>
+						</thead>
+						<tbody>
+							<?php $cantidadUser = count( $dataUser['result'] ); ?>
+							<?php if ( $cantidadUser == 1 ) : ?>
+								<?php for ( $i = 0; $i < $cantidadUser; $i++ ) : ?> 
+									<tr>
+										<td><?php echo( $dataUser['result'][$i]['id'] ); ?></td>
+										<td><?php echo( $dataUser['result'][$i]['name'] ); ?></td>
+										<td><?php echo( $dataUser['result'][$i]['user'] ); ?></td>
+										<td><?php echo( $dataUser['result'][$i]['password'] ); ?></td>
+										<td><?php echo( $dataUser['result'][$i]['city'] ); ?></td>
+										<td><?php echo( $dataUser['result'][$i]['phone'] ); ?></td>
+									</tr>
+								<?php endfor; ?>
+							<?php else : ?>
+								<?php for ( $i = 0; $i < $cantidadUser ; $i++ ) : ?> 
+									<tr>
+										<td><?php echo( $dataUser['result'][$i]['id'] ); ?></td>
+										<td><?php echo( $dataUser['result'][$i]['name'] ); ?></td>
+										<td><?php echo( $dataUser['result'][$i]['user'] ); ?></td>
+										<td><?php echo( $dataUser['result'][$i]['password'] ); ?></td>
+										<td><?php echo( $dataUser['result'][$i]['city'] ); ?></td>
+										<td><?php echo( $dataUser['result'][$i]['phone'] ); ?></td>
+									</tr>
+								<?php endfor; ?>
+							<?php endif; ?>
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 		<div class="container">
-			<h2>Articulos</h2>
-			
-			<table class="table">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Nombre</th>
-						<th>Descripcion</th>
-						<th>Fecha</th>
-				    </tr>
-				</thead>
-				<tbody>
-					<?php $cantidadPost = count( $dataPost['result'] ); ?>
-					<?php if ( $cantidadPost == 1 ) : ?>
-						<?php for ( $j = 0; $j < $cantidadPost; $j++ ) : ?> 
+			<div class="col-md-12 border-color-gray border-radius-min bg-color-white">
+				<div class="table-responsive">
+					<h2>Articulos</h2>
+					<table class="table table-striped table-hover table-resposive">
+						<thead>
 							<tr>
-								<td><?php echo( $dataPost['result'][$j]['id'] ); ?></td>
-								<td><?php echo( $dataPost['result'][$j]['name'] ); ?></td>
-								<td><?php echo( $dataPost['result'][$j]['description'] ); ?></td>
-								<td><?php echo( $dataPost['result'][$j]['date'] ); ?></td>
-							</tr>
-						<?php endfor; ?>
-					<?php else : ?>
-						<?php for ( $j = 0; $j < $cantidadPost; $j++ ) : ?> 
-							<tr>
-								<td><?php echo( $dataPost['result'][$j]['id'] ); ?></td>
-								<td><?php echo( $dataPost['result'][$j]['name'] ); ?></td>
-								<td><?php echo( $dataPost['result'][$j]['description'] ); ?></td>
-								<td><?php echo( $dataPost['result'][$j]['date'] ); ?></td>
-							</tr>
-						<?php endfor; ?>
-					<?php endif; ?>
-				</tbody>
-			</table>
+								<th>ID</th>
+								<th>Nombre</th>
+								<th>Descripcion</th>
+								<th>Fecha</th>
+						    </tr>
+						</thead>
+						<tbody>
+							<?php $cantidadPost = count( $dataPost['result'] ); ?>
+							<?php if ( $cantidadPost == 1 ) : ?>
+								<?php for ( $j = 0; $j < $cantidadPost; $j++ ) : ?> 
+									<tr>
+										<td><?php echo( $dataPost['result'][$j]['id'] ); ?></td>
+										<td><?php echo( $dataPost['result'][$j]['name'] ); ?></td>
+										<td><?php echo( $dataPost['result'][$j]['description'] ); ?></td>
+										<td><?php echo( $dataPost['result'][$j]['date'] ); ?></td>
+									</tr>
+								<?php endfor; ?>
+							<?php else : ?>
+								<?php for ( $j = 0; $j < $cantidadPost; $j++ ) : ?> 
+									<tr>
+										<td><?php echo( $dataPost['result'][$j]['id'] ); ?></td>
+										<td><?php echo( $dataPost['result'][$j]['name'] ); ?></td>
+										<td><?php echo( $dataPost['result'][$j]['description'] ); ?></td>
+										<td><?php echo( $dataPost['result'][$j]['date'] ); ?></td>
+									</tr>
+								<?php endfor; ?>
+							<?php endif; ?>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	</section>
 </body>

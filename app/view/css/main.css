@@ -1,19 +1,28 @@
-div #jumbotronMain {
-	background-color: #76508E;
+body {
+	background: transparent url( '/crud_api/resources/img/background/background.jpg' )no-repeat center center/cover;
+	background-attachment: fixed;
+}
+
+.bg-trasparent-black {
+	background-color: rgba(0,0,0, 0.6);
 	color: #ffffff;
 }
 
-div #jumbotronRegister {
-	background-color: #482D57;
-	color: #ffffff;
+.table-responsive {
+	border: none;
 }
 
-div #jumbotronAbout {
-	background-color: #76508E;
-	color: #ffffff;
+.border-color-gray {
+	border: 2px solid gainsboro;
 }
 
-div #jumbotronCrud {
-	background-color: #03C1EB;
-	color: #000000;
+.border-radius-min  {
+	border-radius: 6px;
+	margin-top: 20px;
 }
+
+.bg-color-white {
+	background: white;
+}
+
+.
