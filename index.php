@@ -43,18 +43,21 @@
 			</div><!-- /.container-fluid -->
 		</nav>
 	</header>
-
-	<?php if(isset($_GET['error'])) { ?>
+	
+	<!-- Alerta para mostrar que fracaso el proceso de registro-->
+	<?php if(isset($_GET['error'])) : ?>
 		<script type="text/javascript">
 			swal( 'Error!', '<?php echo $_GET['error'] ?>', 'error' );
 		</script>
-    <?php } ?>
-
-	<?php if(isset($_GET['success'])) { ?>
+    <?php endif; ?>
+	
+	<!-- Alerta para mostrar que fue exitoso el registro -->
+	<?php if(isset($_GET['success'])) : ?>
 		<script type="text/javascript">
 			swal( 'Excelente!', '<?php echo $_GET['success'] ?>', 'success' );
 		</script>
-    <?php } ?>
+    <?php endif; ?>
+
 	<!-- Jumbotron -->
 	<section>
 		<div class="container-fluid">
@@ -63,13 +66,6 @@
 				<p>Creacion de WEBSERVICES para conexion concurrente en un dispositivo movil</p>
 				<a href="app/view/html/about.html" class="btn btn-info"><span>Conocer mas...</span></a>
 			</div>
-		</div>
-	</section>
-
-	<!-- Seccion #1 -->
-	<section>
-		<div class="container">
-			
 		</div>
 	</section>
 </body>

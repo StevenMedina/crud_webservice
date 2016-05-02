@@ -80,10 +80,8 @@
 		$consulta = 'SELECT * FROM users;';
 		$parameter = array();
 		$operation = $gbd->select( $consulta, $parameter );
-		var_dump( $operation );
 	*/
-
-		// var_dump(base64_decode($operation['result'][0]['password']));
+	// var_dump(base64_decode($operation['result'][0]['password']));
 	
 	/*
 		$gbd = new Conexion();

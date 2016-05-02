@@ -85,11 +85,12 @@ class Post {
 		var_dump( $data );
 	*/
 	/*
-		$user = new User();
+		$post = new Post();
 		$conexion = new Conexion();
-		$data = $user::listar( $conexion );
-		$dataJson = json_encode( $data );
-		var_dump( $dataJson );
+		$data = $post::listar( $conexion );
+		header('Content-Type: application/json');
+		$posts = json_encode( $data );
+		echo $posts;
 	*/
 	/*
 		$conexion = new Conexion();
