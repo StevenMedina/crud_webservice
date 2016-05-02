@@ -37,7 +37,7 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="app/view/html/register/register.html">Registro</a></li>
-						<li><a href="#">Ingreso</a></li>
+						<li><a href="app/view/html/login/login.html">Ingreso</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->

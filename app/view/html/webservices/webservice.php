@@ -32,7 +32,6 @@
 
 				<div class="collapse navbar-collapse" id="navbar1">
 					<ul class="nav navbar-nav">
-						<!--<li class="active"><a href="#">Link<span class="sr-only">(current)</span></a></li>-->
 						<li class="active"><a href="#">WEBSERVICES<span class="sr-only">(current)</span></a></li>
 						<li><a href="/crud_api/app/view/html/crud/crud.php">CRUD</a></li>
 					</ul>
@@ -44,5 +43,27 @@
 			</div><!-- /.container-fluid -->
 		</nav>
 	</header>
+
+	<section>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="jumbotron bg-trasparent-black">
+						<span class="label label-warning">Usuarios</span>
+						<p>Peticion de usuarios por metodo get, listandolos por retorno en JSON.</p>
+						<a href="/crud_api/app/controller/php/petitions/users.php" class="btn btn-primary">Listar</a>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="jumbotron bg-trasparent-black">
+						<span class="label label-warning">Articulos</span>
+						<p>Peticion de articulos por metodo get, listandolos por retorno en JSON.</p>
+						<a href="/crud_api/app/controller/php/petitions/posts.php" class="btn btn-primary">Listar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 </html>
