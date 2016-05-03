@@ -2,7 +2,6 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/app/model/connection.php');
 
 class WebService {
-
 	public function get_client_ip() {
 		$ipaddress = '';
 		if (getenv('HTTP_CLIENT_IP'))
@@ -38,9 +37,5 @@ class WebService {
 			$the_ip = filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
 		}
 		return $the_ip;
-	}
-
-	public function setHeaders() {
-		
 	}
 }

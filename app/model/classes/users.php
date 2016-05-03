@@ -55,6 +55,14 @@ class User {
 		return $operation;
 	}
 
+	public function getUserByID( $id, $conexion ) {
+		$consulta = "SELECT * FROM users WHERE idusers = ?;";
+		$parameter = array( 0 => $id );
+
+		$operation = $conexion->select( $consulta, $parameter );
+		return $operation;
+	}
+
 	public static function registrar( $name, $user, $password, $city, $phone, $conexion ) {
 		$consulta='INSERT INTO users ( name, user, password, city, phone ) values ( ?,?,?,?,? )';
 		$parameter[] = array(
@@ -94,6 +102,13 @@ class User {
 		return $operation;
 	}
 }
+	/*
+	$UserID = new User();
+	$conexion = new Conexion();
+
+	$dato = $UserID->getUserByID( 42, $conexion );
+	var_dump( $dato );
+	*/
 	/*
 		$user = new User();
 		$conexion = new Conexion();
