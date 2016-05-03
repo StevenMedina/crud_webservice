@@ -36,20 +36,33 @@
 						<li><a href="/crud_api/app/view/html/crud/crud.php">CRUD</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/crud_api/app/view/html/register/register.html">Registro</a></li>
-						<li><a href="/crud_api/app/view/html/login/login.html">Ingreso</a></li>
+						<li><a href="/crud_api/app/view/html/register/register.php">Registro</a></li>
+						<li><a href="/crud_api/app/view/html/login/login.php">Ingreso</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
 	</header>
-
+	
+	<!-- Seccion #1 -->
+	<section>
+		<!-- Jumbotron -->
+		<div class="container-fluid">
+			<div class="jumbotron bg-trasparent-black">
+				<h2>Web Service</h2>
+				<p>Un servicio web (en inglés, Web Service o Web services) es una tecnología que utiliza un conjunto de protocolos y estándares que sirven para intercambiar datos entre aplicaciones. Distintas aplicaciones de software desarrolladas en lenguajes de programación diferentes, y ejecutadas sobre cualquier plataforma, pueden utilizar los servicios web para intercambiar datos en redes de ordenadores como Internet</p>
+				<a href="/crud_api/app/view/html/about.html" class="btn btn-warning"><span>Conocer mas...</span></a>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Seccion #2 -->
 	<section>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="jumbotron bg-trasparent-black">
-						<span class="label label-warning">Usuarios</span>
+						<span class="label label-success">Usuarios</span>
 						<p>Peticion de usuarios por metodo get, listandolos por retorno en JSON.</p>
 						<a href="/crud_api/app/controller/php/petitions/users.php" class="btn btn-primary">Listar</a>
 					</div>
@@ -57,7 +70,7 @@
 
 				<div class="col-md-6">
 					<div class="jumbotron bg-trasparent-black">
-						<span class="label label-warning">Articulos</span>
+						<span class="label label-success">Articulos</span>
 						<p>Peticion de articulos por metodo get, listandolos por retorno en JSON.</p>
 						<a href="/crud_api/app/controller/php/petitions/posts.php" class="btn btn-primary">Listar</a>
 					</div>

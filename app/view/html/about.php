@@ -28,12 +28,12 @@
 				<div class="collapse navbar-collapse" id="navbar1">
 					<ul class="nav navbar-nav">
 						<!--<li class="active"><a href="#">Link<span class="sr-only">(current)</span></a></li>-->
-						<li><a href="#">WEBSERVICES</a></li>
-						<li><a href="#">CRUD</a></li>
+						<li><a href="/crud_api/app/view/html/webservices/webservice.php">WEBSERVICES</a></li>
+						<li><a href="/crud_api/app/view/html/crud/crud.php">CRUD</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Registro</a></li>
-						<li><a href="#">Ingreso</a></li>
+						<li><a href="/crud_api/app/view/html/register/register.php">Registro</a></li>
+						<li><a href="/crud_api/app/view/html/login/login.php">Ingreso</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->

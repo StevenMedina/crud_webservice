@@ -36,8 +36,8 @@
 						<li><a href="app/view/html/crud/crud.php">CRUD</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="app/view/html/register/register.html">Registro</a></li>
-						<li><a href="app/view/html/login/login.html">Ingreso</a></li>
+						<li><a href="app/view/html/register/register.php">Registro</a></li>
+						<li><a href="app/view/html/login/login.php">Ingreso</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->

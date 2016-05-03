@@ -1,16 +1,10 @@
 $( document ).ready(function() {
     $('#registerUser').validator().on('submit', function (e) {
 		$.ajax({
-			method: "POST",
-			url: "http://localhost/crud_api/app/model/classes/users.php",
+			type: "POST",
+			url: "http://localhost/crud_api/app/controller/php/register/users.php",
 			dataType: 'json',
-			data: {
-				name: $('#name').val(),
-				user: $('#user').val(),
-				password: $('#password').val(),
-				city: $('#city').val(),
-				phone: $('#phone').val()
-			}
+			data: $('form').serialize()
 		}).done(function( msg ) {
 			if( msg.success ) {
 				swal( 'Excelente, te has registrado satisfactoriamente', 'Presiona el boton para salir...', 'success' );
@@ -19,6 +13,7 @@ $( document ).ready(function() {
 				$('#password').val('');
 				$('#city').val('');
 				$('#phone').val('');
+				$('#r_password').val('');
 			} else {
 				$("#registerUser > span").html("Error!");
 			}

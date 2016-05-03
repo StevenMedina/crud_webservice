@@ -20,15 +20,17 @@ if ( $name != null and $user != null and $password != null and $city != null and
 		if( ( $operation['ejecution'] ) && ( $operation['result']) ) {
 			$response['message'] = "Se registro correctamente la información.";
 			$response['success'] = true;
-
-			header('Location: http://localhost/crud_api/index.php?success=Te has registrado satisfactoriamente');
 		} else {
-			header('Location: http://localhost/crud_api/index.php?error=Error al registrar');
+			$response['message'] = "Error al registrar la información.";
+			$response['success'] = false;
 		}
 	} catch ( Exception $e  ) {
 		$response['message'] = "Error register";
 		$response['success'] = false;
 	}
+} else {
+	$response['message'] = "No hay datos!";
+	$response['success'] = false;
 }
 
 echo json_encode($response);
