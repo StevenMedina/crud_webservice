@@ -81,7 +81,7 @@
 					<div class="jumbotron bg-trasparent-black">
 						<span class="label label-success">Articulos</span>
 						<p>Peticion de articulos por metodo get, listandolos por retorno en JSON.</p>
-						<a href="/crud_api/app/controller/php/petitions/posts.php" class="btn btn-primary">Listar</a>
+						<a href="/crud_api/app/controller/php/petitions/posts/posts.php" class="btn btn-primary">Listar</a>
 					</div>
 				</div>
 			</div>

@@ -49,7 +49,7 @@
 			<div class="jumbotron bg-trasparent-black">
 				<h2>Crud + WEBSERVICES</h2>
 				<p>Creacion de WEBSERVICES para conexion concurrente en un dispositivo movil</p>
-				<a href="app/view/html/about.html" class="btn btn-info"><span>Conocer mas...</span></a>
+				<a href="app/view/html/about.php" class="btn btn-info"><span>Conocer mas...</span></a>
 			</div>
 		</div>
 	</section>

@@ -28,10 +28,9 @@ if ( $name != null and $user != null and $password != null and $city != null and
 		$operation = User::registrar( $name, $user, $password_cript, $city, $phone, $conexion );
 
 		if( ( $operation['ejecution'] ) && ( $operation['result']) ) {
-			$response['message'] = "Se registro correctamente la información.";
-			$response['success'] = true;
+			$Request = array( 'status' => 'Se registro satisfactoriamente la informacion' );
 
-			$array = array('headers' => $headers, 'content' => $response['message'], 'success' => $response['success']);
+			$array = array('headers' => $headers, 'content' => $Request );
 			header('Content-Type: application/json');
 
 			$response = json_encode( $array );

@@ -109,15 +109,22 @@ class User {
 		return $operation;
 	}
 
-	public function eliminar( $conexion ) {
+	public function eliminar( $id, $conexion ) {
 		$consulta = 'DELETE FROM users WHERE idusers=?;';
-		$parameter[] = array( 0 => $this->id );
+		$parameter[] = array( 0 => $id );
 
 		$parameters = array('consulta' => $consulta, 'parameter' => $parameter );
 		$operation = $conexion->dml($parameters);
 		return $operation;
 	}
 }
+	/* 
+	$user = new User();
+	$conexion = new Conexion();
+
+	$data = $user->eliminar( 42, $conexion );
+	var_dump( $data );
+	*/
 	/*
 	$UserID = new User();
 	$conexion = new Conexion();
