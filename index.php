@@ -43,21 +43,6 @@
 			</div><!-- /.container-fluid -->
 		</nav>
 	</header>
-	
-	<!-- Alerta para mostrar que fracaso el proceso de registro-->
-	<?php if(isset($_GET['error'])) : ?>
-		<script type="text/javascript">
-			swal( 'Error!', '<?php echo $_GET['error'] ?>', 'error' );
-		</script>
-    <?php endif; ?>
-	
-	<!-- Alerta para mostrar que fue exitoso el registro -->
-	<?php if(isset($_GET['success'])) : ?>
-		<script type="text/javascript">
-			swal( 'Excelente!', '<?php echo $_GET['success'] ?>', 'success' );
-		</script>
-    <?php endif; ?>
-
 	<!-- Jumbotron -->
 	<section>
 		<div class="container-fluid">

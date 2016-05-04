@@ -77,7 +77,7 @@
 	}
 	/*
 		$gbd = new Conexion();
-		$consulta = 'SELECT * FROM users WHERE idusers=45;';
+		$consulta = 'SELECT * FROM users;';
 		$parameter = array();
 		$operation = $gbd->select( $consulta, $parameter );
 		print_r( $operation );

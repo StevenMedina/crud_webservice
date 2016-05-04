@@ -64,10 +64,19 @@
 					<div class="jumbotron bg-trasparent-black">
 						<span class="label label-success">Usuarios</span>
 						<p>Peticion de usuarios por metodo get, listandolos por retorno en JSON.</p>
-						<a href="/crud_api/app/controller/php/petitions/users.php" class="btn btn-primary">Listar</a>
+						<a href="/crud_api/app/controller/php/petitions/users/usersAll.php" class="btn btn-primary">Listar</a>
 					</div>
 				</div>
+				<div class="col-md-6">
+					<div class="jumbotron bg-trasparent-black">
+						<span class="label label-success">Usuarios</span>
+						<p>Peticion de usuarios por ID con el metodo GET, listandolo por retorno en JSON.</p>
+						<a href="/crud_api/app/controller/php/petitions/users/userID.php" class="btn btn-primary">Listar</a>
+					</div>
+				</div>
+			</div>
 
+			<div class="row">
 				<div class="col-md-6">
 					<div class="jumbotron bg-trasparent-black">
 						<span class="label label-success">Articulos</span>

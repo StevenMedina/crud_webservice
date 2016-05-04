@@ -5,6 +5,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/app/model/classes/webService.p
 // Get 'id' by URL
 $id = (isset($_REQUEST['id'])) ? filter_var($_REQUEST['id'], FILTER_SANITIZE_STRING) : null;
 
+// Instantiating Classes
 $user = new User();
 $webService = new WebService();
 $conexion = new Conexion();
@@ -16,23 +17,14 @@ $ipUser = $webService->get_client_ip();
 $headers = array( 'Direccion ip' => $ipUser );
 
 // Get all data
-$data = $user::listar( $conexion );
-$datauser = $user->getUserByID( $id, $conexion );
-
-// Creating a array with headers and content of post.
-$array = array('headers' => $headers, 'content' => $data );
-// Creating return in JSON
-header('Content-Type: application/json');
-$users = json_encode( $array );
-echo( $users ); 
+$datauser = $user::getUserByID( $id, $conexion );
 
 if ( $datauser['result'] != 0 ) {
 	// Creating a array with headers and content of post.
 	$array = array('headers' => $headers, 'content' => $datauser );
 	// Creating return in JSON
 	header('Content-Type: application/json');
-	/* $users = json_encode( $array );
-	echo( $users ); */
+
 	$response = json_encode( $array );
 	echo( $response );
 } else {

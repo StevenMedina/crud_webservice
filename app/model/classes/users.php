@@ -55,11 +55,27 @@ class User {
 		return $operation;
 	}
 
-	public function getUserByID( $id, $conexion ) {
+	public static function getUserByID( $id, $conexion ) {
 		$consulta = "SELECT * FROM users WHERE idusers = ?;";
 		$parameter = array( 0 => $id );
 
 		$operation = $conexion->select( $consulta, $parameter );
+
+		if( $operation['ejecution'] ) {
+			if( $operation['result'] ) {
+				$i = 0;
+				foreach( $operation['result'] as $fila ) {
+					$resultado[$i]['id'] = $fila['idusers'];
+					$resultado[$i]['name'] = $fila['name'];
+					$resultado[$i]['user'] = $fila['user'];
+					$resultado[$i]['password'] = $fila['password'];
+					$resultado[$i]['city'] = $fila['city'];
+					$resultado[$i]['phone'] = $fila['phone'];
+					$i++;
+				}
+				$operation['result'] = $resultado;
+			}
+		}
 		return $operation;
 	}
 
