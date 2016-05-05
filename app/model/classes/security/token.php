@@ -12,6 +12,34 @@ class Token {
 	private $id = "5152347";
 	private $uid = 1;
 
+	public function tokenStatic() {
+		$key = "steven";
+
+		$header = [
+			'alg' => 'HS256',
+			'typ' => 'JWT'
+		];
+
+		$header = json_encode( $header );
+		$header = base64_encode( $header );
+
+		$payload = [
+			'iss' => 'appslequar.com/crud_api/',
+			'username' => 'stevenmedina',
+			'email' => 'steven@gmail.com'
+		];
+
+		$payload = json_encode( $payload );
+		$payload = base64_encode( $payload );
+
+		$signature = hash_hmac( "sha256" , "$header.$payload", $key, true );
+		$signature = base64_encode( $signature );
+
+		$token = "$header.$payload.$signature";
+
+		return $token;
+	}
+
 	public function generateToken() {
 		$signer = new Sha256();
 
@@ -46,14 +74,17 @@ class Token {
 		return $result;
 	}
 }
-
 /*
-	Validating key
+	// Validating key
 	// Instantiating Class
 	$token = new Token();
-	$key = 'stevenmedina';
+	$key = 'YoI6Bp5Oa9';
 	$code = $token->validatingToken( $key );
-
 	var_dump( $code );
 */
 
+/*
+	$token = new Token();
+	$code = $token->generateToken();
+	echo( $code );
+*/

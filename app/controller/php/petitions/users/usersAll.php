@@ -1,26 +1,32 @@
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/app/model/classes/users.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/app/model/classes/webService.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/app/model/classes/security/token.php');
 
-$token = (isset($_REQUEST['token'])) ? filter_var($_REQUEST['token'], FILTER_SANITIZE_STRING) : null;
+$tokenRequest = (isset($_REQUEST['token'])) ? filter_var($_REQUEST['token'], FILTER_SANITIZE_STRING) : null;
 
 // Instantiating Classes
 $user = new User();
 $webService = new WebService();
 $conexion = new Conexion();
+$token = new Token();
 
-// Get ip client
-$ipUser = $webService->get_client_ip();
+if ( $tokenRequest === $token->tokenStatic() ) {
+	$ipUser = $webService->get_client_ip(); // Get ip client
+	$headers = array( 'Direccion ip' => $ipUser, 'result' => 'Token valido' ); // Headers to render JSON
+	$data = $user::listar( $conexion ); // Get all data
+	$array = array('headers' => $headers, 'content' => $data ); // Creating a array with headers and content of post.
 
-// Headers to render JSON
-$headers = array( 'Direccion ip' => $ipUser );
+	// Creating return in JSON
+	header('Content-Type: application/json');
+	$users = json_encode( $array );
+	echo( $users );
+} else {
+	$ipUser = $webService->get_client_ip(); // Get ip client
+	$headers = array( 'Direccion ip' => $ipUser, 'result' => 'Token invalido' ); // Headers to render JSON
 
-// Get all data
-$data = $user::listar( $conexion );
-
-// Creating a array with headers and content of post.
-$array = array('headers' => $headers, 'content' => $data );
-// Creating return in JSON
-header('Content-Type: application/json');
-$users = json_encode( $array );
-echo( $users ); 
+	// Creating return in JSON
+	header('Content-Type: application/json');
+	$tokenInvalid = json_encode( $headers );
+	echo( $tokenInvalid ); 
+}
