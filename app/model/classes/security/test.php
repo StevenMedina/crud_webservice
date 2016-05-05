@@ -9,7 +9,7 @@ $signer = new Sha256();
 
 $token = (new Builder())->setIssuer('http://appslequar.com/crud_api/') // Configures the issuer (iss claim)
                         ->setAudience('http://training+.com') // Configures the audience (aud claim)
-                        ->setId('4f1g23a12aa', true) // Configures the id (jti claim), replicating as a header item
+                        ->setId('5152347', true) // Configures the id (jti claim), replicating as a header item
                         ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
                         ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
                         ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
@@ -17,10 +17,14 @@ $token = (new Builder())->setIssuer('http://appslequar.com/crud_api/') // Config
                         ->sign($signer, 'steven')
                         ->getToken(); // Retrieves the generated toke
 
+print_r($token->getHeaders()); // Retrieves the token headers
+print_r($token->getClaims()); // Retrieves the token claims
+
+// echo $token; // The string representation of the object is a JWT string (pretty easy, right?)
 
 // Codificar a base 64
-$tokenCode = base64_encode( $token );
-echo $tokenCode;
+// $tokenCode = base64_encode( $token );
+// echo $tokenCode;
 
 // Decodificar a string normal
 // $tokenDecode = base64_decode( $tokenCode );

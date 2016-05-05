@@ -3,6 +3,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/app/model/classes/users.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/app/model/classes/webService.php');
 
 $token = (isset($_REQUEST['token'])) ? filter_var($_REQUEST['token'], FILTER_SANITIZE_STRING) : null;
+
 // Instantiating Classes
 $user = new User();
 $webService = new WebService();
