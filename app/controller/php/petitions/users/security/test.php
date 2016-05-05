@@ -4,10 +4,11 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/vendor/autoload.php');
 use Lcobucci\JWT\Builder;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
 
+$key = "steven";
 $signer = new Sha256();
 
-$token = (new Builder())->setIssuer('http://example.com') // Configures the issuer (iss claim)
-                        ->setAudience('http://example.org') // Configures the audience (aud claim)
+$token = (new Builder())->setIssuer('http://appslequar.com/crud_api/') // Configures the issuer (iss claim)
+                        ->setAudience('http://training+.com') // Configures the audience (aud claim)
                         ->setId('4f1g23a12aa', true) // Configures the id (jti claim), replicating as a header item
                         ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
                         ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
@@ -16,4 +17,11 @@ $token = (new Builder())->setIssuer('http://example.com') // Configures the issu
                         ->sign($signer, 'steven')
                         ->getToken(); // Retrieves the generated toke
 
-echo( $token );
+
+// Codificar a base 64
+$tokenCode = base64_encode( $token );
+echo $tokenCode;
+
+// Decodificar a string normal
+// $tokenDecode = base64_decode( $tokenCode );
+// echo $tokenDecode;
