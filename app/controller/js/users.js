@@ -2,7 +2,7 @@ $( document ).ready(function() {
     $('#registerUser').validator().on('submit', function (e) {
 		$.ajax({
 			type: "POST",
-			url: "http://localhost/crud_api/app/controller/php/register/users.php",
+			url: "http://localhost/crud_api/app/controller/php/register/users",
 			dataType: 'json',
 			data: $('form').serialize()
 		}).done(function( msg ) {
