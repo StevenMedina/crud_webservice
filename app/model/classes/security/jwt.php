@@ -1,37 +1,45 @@
 <?php 
+require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/app/model/classes/security/token.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/app/model/classes/webService.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/crud_api/app/model/classes/users.php');
 
-function token() {
-	$key = "steven";
+$user = new User();
+$webService = new WebService();
+$conexion = new Conexion();
+$token = new Token();
 
-	$header = [
-		'alg' => 'HS256',
-		'typ' => 'JWT'
-	];
+if ( isset( $_GET['token'] ) ) {
+	$tokenRequest = (isset($_REQUEST['token'])) ? filter_var($_REQUEST['token'], FILTER_DEFAULT) : null;
 
-	$header = json_encode( $header );
-	$header = base64_encode( $header );
+	if ( $tokenRequest === $token->tokenUnic() ) {
+		$ipUser = $webService->get_client_ip(); // Get ip client
+		$headers = array( 'Direccion ip' => $ipUser, 'result' => 'Token valido' ); // Headers to render JSON
+		$data = $user::listar( $conexion ); // Get all data
+		$array = array('headers' => $headers, 'content' => $data ); // Creating a array with headers and content of post.
 
-	$payload = [
-		'iss' => 'appslequar.com/crud_api/',
-		'username' => 'stevenmedina',
-		'email' => 'steven@gmail.com'
-	];
+		// Creating return in JSON
+		header('Content-Type: application/json');
+		$users = json_encode( $array );
+		echo( $users );
+	} else {
+		$ipUser = $webService->get_client_ip(); // Get ip client
+		$headers = array( 'Direccion ip' => $ipUser, 'result' => 'Token invalido' ); // Headers to render JSON
 
-	$payload = json_encode( $payload );
-	$payload = base64_encode( $payload );
-
-	$signature = hash_hmac( "sha256" , "$header.$payload", $key, true );
-	$signature = base64_encode( $signature );
-
-	$token = "$header.$payload.$signature";
-
-	return $token;
-}
-
-$token_recibido = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBzbGVxdWFyLmNvbVwvY3J1ZF9hcGlcLyIsInVzZXJuYW1lIjoic3RldmVubWVkaW5hIiwiZW1haWwiOiJzdGV2ZW5AZ21haWwuY29tIn0=.UgBDwMxxWbPondllvR37Q+bYsz9lrl7AWajfz/iFCN0=";
-
-if ( $token_recibido === token() ) {
-	echo "Siga!";
+		// Creating return in JSON
+		header('Content-Type: application/json');
+		$tokenInvalid = json_encode( $headers );
+		echo( $tokenInvalid ); 
+	}
 } else {
-	echo "Lo siento";
+		$ipUser = $webService->get_client_ip(); // Get ip client
+		$headers = array( 'Direccion ip' => $ipUser, 'result' => 'No has ingresado el token' ); // Headers to render JSON
+
+		// Creating return in JSON
+		header('Content-Type: application/json');
+		$tokenInvalid = json_encode( $headers );
+		echo( $tokenInvalid ); 
 }
+
+// $token_recibido = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBzbGVxdWFyLmNvbVwvY3J1ZF9hcGlcLyIsInVzZXJuYW1lIjoic3RldmVubWVkaW5hIiwiZW1haWwiOiJzdGV2ZW5AZ21haWwuY29tIn0=.UgBDwMxxWbPondllvR37Q+bYsz9lrl7AWajfz/iFCN0=";
+// $token= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBzbGVxdWFyLmNvbVwvY3J1ZF9hcGlcLyIsInVzZXJuYW1lIjoic3RldmVubWVkaW5hIiwiZW1haWwiOiJzdGV2ZW5AZ21haWwuY29tIn0=.UgBDwMxxWbPondllvR37QbYsz9lrl7AWajfz/iFCN0=";
+

@@ -11,6 +11,7 @@ class Token {
 	private $audience = "http://trainingplus.com";
 	private $id = "5152347";
 	private $uid = 1;
+	private $token = "8214dtmW6N";
 
 	public function tokenStatic() {
 		$key = "steven";
@@ -72,6 +73,11 @@ class Token {
 
 		// Return result => false || true
 		return $result;
+	}
+
+	public function tokenUnic() {
+		$key = $this->token;
+		return $key;
 	}
 }
 /*
